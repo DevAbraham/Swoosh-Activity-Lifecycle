@@ -1,8 +1,9 @@
-package com.ruedapps.swoosh
+package com.ruedapps.swoosh.Controller
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.ruedapps.swoosh.R
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -11,7 +12,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         btnGetStarted.setOnClickListener {
-            val leagueIntent = Intent (this,LeagueActivity::class.java)
+            val leagueIntent = Intent (this, LeagueActivity::class.java)
             startActivity(leagueIntent)
         }
     }
