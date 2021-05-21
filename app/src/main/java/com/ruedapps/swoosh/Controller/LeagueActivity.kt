@@ -4,13 +4,14 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import com.ruedapps.swoosh.EXTRA_LEAGUE
+import com.ruedapps.swoosh.EXTRA_PLAYER
+import com.ruedapps.swoosh.Model.Player
 import com.ruedapps.swoosh.R
 import kotlinx.android.synthetic.main.activity_league.*
 
 class LeagueActivity : AppCompatActivity() {
 
-    var selectedLeague = ""
+    var player = Player ("","")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,9 +19,9 @@ class LeagueActivity : AppCompatActivity() {
 
         btnLeagueNext.setOnClickListener {
 
-            if(selectedLeague != ""){
+            if(player.league != ""){
                 val skillActivity = Intent (this, SkillActivity::class.java)
-                skillActivity.putExtra(EXTRA_LEAGUE,selectedLeague)
+                    skillActivity.putExtra(EXTRA_PLAYER, player)
                 startActivity(skillActivity)
             }else{
                 Toast.makeText(this,"Please select a league",Toast.LENGTH_SHORT).show()
@@ -30,15 +31,14 @@ class LeagueActivity : AppCompatActivity() {
         tBtnMens.setOnClickListener {
             tBtnWomens.isChecked = false
             tBtnCop.isChecked = false
-
-            selectedLeague = "mens"
+            player.league = "mens"
         }
 
         tBtnWomens.setOnClickListener {
             tBtnMens.isChecked = false
             tBtnCop.isChecked = false
 
-            selectedLeague = "womens"
+            player.league = "womens"
 
         }
 
@@ -46,7 +46,7 @@ class LeagueActivity : AppCompatActivity() {
             tBtnMens.isChecked = false
             tBtnWomens.isChecked = false
 
-            selectedLeague = "co-ed"
+            player.league = "co-ed"
         }
     }
 }
