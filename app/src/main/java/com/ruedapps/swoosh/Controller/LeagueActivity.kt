@@ -9,7 +9,7 @@ import com.ruedapps.swoosh.Model.Player
 import com.ruedapps.swoosh.R
 import kotlinx.android.synthetic.main.activity_league.*
 
-class LeagueActivity : AppCompatActivity() {
+class LeagueActivity : BaseActivity() {
 
     var player = Player ("","")
 

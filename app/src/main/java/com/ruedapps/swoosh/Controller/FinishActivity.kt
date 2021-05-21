@@ -8,12 +8,13 @@ import com.ruedapps.swoosh.Model.Player
 import com.ruedapps.swoosh.R
 import kotlinx.android.synthetic.main.activity_finish.*
 
-class FinishActivity : AppCompatActivity() {
+class FinishActivity : BaseActivity() {
     lateinit var player :Player
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_finish)
         player = intent.getParcelableExtra(EXTRA_PLAYER) ?: Player("","")
-        txtSearchLeagues.text = "Looking for ${player.league} ${player.skill} league near you..."
+        val txtLeagues = "Looking for ${player.league} ${player.skill} league near you..."
+        txtSearchLeagues.text = txtLeagues
     }
 }
